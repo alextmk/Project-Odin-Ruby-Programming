@@ -68,5 +68,17 @@ times is when you know how many times you want to iterate
 each is when you want to iterate over every member of a list/array
 
 22. nesting loops is when you have loops within loops, I would use it when finding subarrays etc
-
+23. block is like a function in that it's some code that executes and that you can pass to methods
+24. block does not have a name and it's not an object
+25. 2 ways to declare a block are {} and do...end
+26. you can return data from a block by calling return statement
+27. if you include a return statement in a block, it'll automatically return 
+28. a block can be reused in all different situations and not limited to just one method
+29. yield runs the passed block
+30. You can pass arguments to a block from within a method by passing a parameter to yield
+31. You can check whether a block was passed in with block_given?
+32. proc is a named block
+33. block is not an object, proc is
+34. you would use proc instead of a block when you need to reuse the block multiple times
+35.
 
