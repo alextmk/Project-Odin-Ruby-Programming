@@ -80,5 +80,39 @@ each is when you want to iterate over every member of a list/array
 32. proc is a named block
 33. block is not an object, proc is
 34. you would use proc instead of a block when you need to reuse the block multiple times
-35.
-
+35. a closure is a chunk of code that you can pass around but hangs onto the variables that you gave it when you first called it
+36. lambda is a more formal form of proc, it checks for aguments passed and it 
+37. lambda is more strict and return will return control back to method whereas proc will jump out 
+38. a Method is a way of taking named methods and passing them as arguments
+39. you can use a function as an argument and utilize that function within your current function
+40. module is a collection of methods that can be included into other classes
+41. modules are useful because you can include them with say array or hash classes and you can now use the packaged methods on arrays and hashes
+42. each iterates over every element and does the block action
+43. each returns original object
+44. map iterates over every element and replaces the element with the block element
+45. map returns new object
+46. map and collect are the same
+47. select iterates over every element and puts the elements for which the block returns true into a new array
+48. select returns a new array
+49. *see above
+50. inject (reduce) is supplied with initial value and returns last value
+51. you can use inject to sum elements of an array
+52. to check every element fulfills a certain criteria, use all?
+53. to check if none of the elements fulfill criteria, use none?
+54. it's an implementation detail for Enumerators
+55. ideally, a method should only do one thing
+56. method should use only variables that have been passed in, don't modify globals, also don't modify the arguments or object the method was called on
+57. descriptive name
+58. self means the current object that the method is being called on
+59. to create your own ruby script file simply create your_file.rb
+60. Use ruby your_file.rb to run from command line
+61. you can use if($0 == __FILE__)
+$0 is the main or original file that was run 
+__FILE__ is the name of the current file
+62. one that modifies arguments that's being passed
+63. require searches for the library in all defined search paths and makes sure library is included once
+64. load needs to add full name of library and gets loaded every time you call load
+65. load might load the library even if it's already on memory
+66. there's a special global called ARGV that contains your input from command line
+67. send lets you run a method
+68. you can use send at runtime and no need to code your method again since rub ycan call call methods dynamically
