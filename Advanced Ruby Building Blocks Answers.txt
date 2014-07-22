@@ -1,0 +1,72 @@
+1.A boolean value is one that results to true or false
+2.truthy values are any expression that evaluates to true 
+	truthy values:
+	true
+	object
+	any fixnum, i.e. 0,1
+	any string(object), i.e. "" "hi"
+	empty objects are still truthy
+
+	falsey values:
+	nil
+	false
+3. nil is false, everything else evaluates to true, but they aren't equivalent to true/false
+4. use elsif if you want to have linked if statements
+5. use unless when you want to repeat a statement unless some condition becomes true
+6. <=> is comparable operator, 
+	a <=> b
+	if a<b then return -1
+	if a=b then return 0
+	if a>b then return 1
+	if a and b aren't comparable then return nil (different types of objects)
+
+	if you use <=> on arrays then it goes by element to element, moves to another element until not return 0
+7. You might define your own <=> method when you want to compare according to a certain way
+8. || is logical or, it checks left then right, && checks both, ! reverses the boolean
+9. puts("woah") || true returns true but also prints "woah"
+10. ||= is equivalent of a || a = b, so a is set to b if a is false
+11. ternary operator is a shorthand if/else if_this_is_a_true_value ? then_the_result_is_this : else_it_is_this
+12. Use case statement when you know the possible choices
+13. loops infinitely, keeps executing block statement until it hits break statement
+14. 1 way to denote a block is with curly braces {}, another way is to use do...end
+15. index variable is to denote the index of an array starting from 0 to arr.length-1
+16. 
+
+print each item of [1,3,5,7]
+i=0
+loop do
+break if i==arr.length
+print arr[i]
+i+=1
+end
+
+i=0
+while(i<4)
+print arr[i]
+i+=1
+end
+
+for item in arr do
+print item
+end
+
+arr.each do |i|
+print i
+end
+
+(arr.length).times do |i|
+print arr[i]
+end
+
+
+17. until will execute at least once compared to while
+18. you can use break statement to get out of loop
+19. you can use next statement to get to next iteration
+20. redo resets the current iteration, retry starts entire loop again
+21. while is when you just have a stop condition
+times is when you know how many times you want to iterate
+each is when you want to iterate over every member of a list/array
+
+22. nesting loops is when you have loops within loops, I would use it when finding subarrays etc
+
+
