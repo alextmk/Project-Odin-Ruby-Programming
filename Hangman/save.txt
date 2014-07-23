@@ -1,0 +1,27 @@
+--- !ruby/object:Hangman
+user_guess: []
+guess: save
+answer_word: panamanian
+current:
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+current_turn: 0
+user_selection: 1
+body:
+- ! ' '
+- ! ' '
+- ! ' '
+- ! ' '
+- ! ' '
+- ! ' '
+- ! ' '
+skeleton_base: ! "|-------------|          Total Letters=10\n|             |          Lives
+  Left=7\n|              \n|               \n|              \n|               \n|\n|_________________"

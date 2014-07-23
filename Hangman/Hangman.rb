@@ -1,4 +1,5 @@
 require "./Dictionary"
+require "yaml"
 
 class Hangman
 	def initialize 
@@ -21,7 +22,7 @@ class Hangman
 		
 		#skeleton variables
 		@body=[" "," "," "," "," "," "," "] #variable to hold body
-		@skeleton_base=%Q(|-------------|\n|             |\n|             #{@body[0]}\n|            #{@body[3]}#{@body[1]}#{@body[4]}\n|             #{@body[2]}\n|            #{@body[5]} #{@body[6]}\n|\n|_________________)
+		@skeleton_base=%Q(|-------------|          Total Letters=#{@answer_word.length}\n|             |          Lives Left=#{7-@current_turn}\n|             #{@body[0]}\n|            #{@body[3]}#{@body[1]}#{@body[4]}\n|             #{@body[2]}\n|            #{@body[5]} #{@body[6]}\n|\n|_________________)
 	end
 
 	def menu
@@ -32,6 +33,7 @@ class Hangman
 				about_message
 				puts "----------------------------------------------------------------------"
 				welcome_selection
+				puts "----------------------------------------------------------------------"
 			elsif(@user_selection==4)
 				abort("You've quit the game!")
 			end
@@ -43,10 +45,16 @@ class Hangman
 			puts display_current
 		else
 			#load saved game here
-
+			load_game
 		end
 	end
-
+	def continue_turn
+		system "cls"
+		puts @skeleton_base #draw skeleton
+		puts ""
+		puts display_current #show current 
+		take_turn
+	end
 	def take_turn #takes turn until game is over
 		while(!check_win||!check_loss) #while haven't won or haven't lost
 			user_input #takes user's guess
@@ -65,15 +73,36 @@ class Hangman
 
 	private
 
+		def save_game
+			save_object("./save.txt",self)
+		end
+
+		def load_game
+			saved=load_object("./save.txt")
+			saved.continue_turn
+		end
+
+		def save_object(filename,file_to_save)
+			File.open(filename, "w") do |file|
+				file.write(YAML::dump(file_to_save))
+			end
+		end
+
+		def load_object(filename)
+			return YAML::load(File.read(filename))
+		end
+
 		def about_message
 			puts "This is a game where a word between length of 5 - 12 will be picked and you'll have to guess the word. Everytime you guess incorrectly, the hangman will gain another part to his body, once the hangman is fully formed(7 lives), you'll have lost the game"
 		end
 
 		def welcome_selection #welcome screen, user can select from between options 1-4
-			puts "Welcome to Hangman!, please select from the following options\n1: New Game\n2: Saved Game\n3: About\n4: Quit Game"
+			puts "----------------------------------------------------------------------"
+			puts "Welcome to Hangman!, please select from the following options\n1: New Game\n2: Last Saved Game\n3: About\n4: Quit Game"
+			puts "----------------------------------------------------------------------"
 			@user_selection=gets.chomp
 			while(@user_selection.length>1||@user_selection.split("").any? {|i| i=~/[^1-4]/})
-				puts "Not a valid choice, please select another choice. \n1: New Game\n2: Saved Game\n3: About\n4: Quit Game"
+				puts "Not a valid choice, please select another choice. \n1: New Game\n2: Last Saved Game\n3: About\n4: Quit Game"
 				@user_selection=gets.chomp
 			end
 			@user_selection=@user_selection.to_i
@@ -83,12 +112,18 @@ class Hangman
 		def user_input #sets the instance variable @guess to take a new guess
 			puts "Please guess a letter:"
 			@guess=gets.downcase.chomp
+			if(@guess=="save")
+				#Save the game File, give a time with saves
+				save_game
+				abort("You've saved the game file")
+			end
 			while(@guess.length>1||@guess.split("").any? {|i| i=~/[^a-zA-Z]/}||@user_guess.include?(@guess)) # if guess isn't just 1 letter or anything else
 				#take another guess here
 				puts "Invalid input/You've already guessed that, please guess a letter"
 				@guess=gets.downcase.chomp
 				if(@guess=="save")
 					#Save the game File, give a time with saves
+					save_game
 					abort("You've saved the game file")
 				elsif(@guess=="quit")
 					abort("You've selected to quit the game")
@@ -138,7 +173,7 @@ class Hangman
 
 		def add_body_part #add a body part to the skeleton
 			@body[@current_turn]=@@skeleton[@current_turn]
-			@skeleton_base=%Q(|-------------|\n|             |\n|             #{@body[0]}\n|            #{@body[3]}#{@body[1]}#{@body[4]}\n|             #{@body[2]}\n|            #{@body[5]} #{@body[6]}\n|\n|_________________)
+			@skeleton_base=%Q(|-------------|          Total Letters=#{@answer_word.length}\n|             |          Lives Left=#{6-@current_turn}\n|             #{@body[0]}\n|            #{@body[3]}#{@body[1]}#{@body[4]}\n|             #{@body[2]}\n|            #{@body[5]} #{@body[6]}\n|\n|_________________)
 		end
 
 end
