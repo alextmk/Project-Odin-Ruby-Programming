@@ -1,7 +1,7 @@
 class Mastermind
 
 	def initialize(slots,rows) #takes in how many slots and how many rows, 
-
+		@slots=slots
 		@row=0 #keeps track of guess #, stops at rows-1
 		@row_limit=rows
 		@answer=[] #answer array
@@ -11,13 +11,14 @@ class Mastermind
 	end
 
 	def populate(choice=0) #choice takes 0 or 1, 0 for computer answre, 1 for your input
-		if(choice==0)
-			slots.times do |i| #insert randomly 0-5 into answer
-				@answer<<rand(6)
-			end
-		else
+		if(choice==1)
 			puts "Enter your secret code by typing 4 digits each ranging from 0-5"
 			@answer=gets.chomp.split("").map {|i| i.to_i}
+		else
+			@slots.times do |i| #insert randomly 0-5 into answer
+				@answer<<rand(6)
+			end
+			
 		end
 	end
 
@@ -33,14 +34,15 @@ class Mastermind
 		puts ""
 	end
 
-	def take_guess #takes a user guess, need to add checking
-		print "Take a guess by typing 4 digits each ranging from 0-5"
+	def take_guess #takes a user guess, need to add checking, right now assumes correct user input
+		puts "-----------------------------------------------------------------------------"
+		print "Take a guess by typing 4 digits each ranging from 0-5, this is round ##{@row+1}"
 		puts ""
 		@player_answer=gets.chomp.split("").map {|i| i.to_i}
 
 		if(@guesses_so_far.include?(@player_answer))
 			while(@guesses_so_far.include?(@player_answer))
-				print "Sorry you've already guessed that, enter another guess please."
+				print "Sorry you've already guessed that, enter another guess please. you're currently on round ##{@row+1}"
 				puts ""
 				@player_answer=gets.chomp.split("").map {|i| i.to_i}
 			end
@@ -97,10 +99,12 @@ class Mastermind
 	end
 
 	def win_message #returns winning message if code is solved
+		puts "-----------------------------------------------------------------------------"
 		print "Congratulations! You've guess the code, it was #{@answer}"
 	end
 
 	def lose_message #returns losing message if code isn't solved
+		puts "-----------------------------------------------------------------------------"
 		print "Sorry, You've failed to solved the code in #{@row} rounds, the answer was #{@answer}"
 	end
 
