@@ -1,0 +1,29 @@
+1. An implicit return is when return statement is given, the method/block returns automatically whatever is on the last line
+2. a class is a template
+3. you should use a class when you need to run the same method on a bunch of objects 
+4. to create a class, simply use the keyword "class" with a capital name
+5. an instance of a class is an object and it is created using the keyword new
+6. Camel case is all one word using capital letters to denote different words, snake case uses all lower case and uses underscore to denote different words
+   Camel case used for class names, snake_case used for method names, variables, etc
+7. you instantiate a class with the keyword new, which is a class method, called on the class, not on any object, ::new, double colon means a class method
+8. you set the state of your new instance with a initialize method in the class
+9. the initialize method should initialize all instance variables/state of object
+10. class method is a method that's used on a class, like new
+11. class method is a method of a class, instance method is a method on an instance of the class
+12. methods like count or sort are instance methods because they need to be called on an object, they can't be called on a class
+13. to declare a class method, use self keyword like def self.class_method, to declare instance method, just do def instance_method
+14. instance variable is a variable of a particular instance of a class
+15. instance variable can be used throughout the class, a regular variable is limited in its scope to the block
+16. getter and setter methods are used to set and retrieve instance variables in a class, you can define them using
+    attr_accessor (both), attr_writer (write), attr_reader (read)
+17. a getter method only retrieves the variable whereas a setter method only sets a variable(give it some value)
+18. attr_accessor (both), attr_writer (write), attr_reader (read) followed by symbolized names of variables with commas in between
+19. a class can call its own class methods, you can have a class method that initializes new object, and call it within the class
+20. a constant is one that must NEVER be changed, i.e. PI, class variable can still be changed, i.e. array.length
+21. a class has variables and methods, modules just have methods, class can be instantiated, modules can't
+22. I would use a class when I need to store data and have ways of manipulating the data
+22. inheritance works by a child class getting all variables/methods of the parent class, use < symbol to inherit
+23. inheritance is useful because it makes it so you don't have to write as much code
+24. extending a class is same thing as inheritance
+25. calling super in a method makes it so the call control looks for a method with same name in the parent class, it calls the superclass version of your method
+
