@@ -29,6 +29,7 @@ class Hangman
 		welcome_selection
 		while(@user_selection!=1&&@user_selection!=2)
 			if(@user_selection==3)
+				system "cls"
 				puts "----------------------------------------------------------------------"
 				about_message
 				puts "----------------------------------------------------------------------"
@@ -39,6 +40,7 @@ class Hangman
 			end
 		end
 		if(@user_selection==1)
+			system "cls"
 			puts "----------------------------------------------------------------------"
 			puts @skeleton_base
 			puts ""
@@ -116,6 +118,8 @@ class Hangman
 				#Save the game File, give a time with saves
 				save_game
 				abort("You've saved the game file")
+			elsif(@guess=="quit")
+				abort("You've selected to quit the game")
 			end
 			while(@guess.length>1||@guess.split("").any? {|i| i=~/[^a-zA-Z]/}||@user_guess.include?(@guess)) # if guess isn't just 1 letter or anything else
 				#take another guess here

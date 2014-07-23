@@ -1,10 +1,8 @@
 --- !ruby/object:Hangman
 user_guess: []
 guess: save
-answer_word: panamanian
+answer_word: calamine
 current:
-- _
-- _
 - _
 - _
 - _
@@ -23,5 +21,5 @@ body:
 - ! ' '
 - ! ' '
 - ! ' '
-skeleton_base: ! "|-------------|          Total Letters=10\n|             |          Lives
+skeleton_base: ! "|-------------|          Total Letters=8\n|             |          Lives
   Left=7\n|              \n|               \n|              \n|               \n|\n|_________________"
