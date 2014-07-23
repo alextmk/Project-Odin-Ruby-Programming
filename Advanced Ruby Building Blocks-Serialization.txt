@@ -1,0 +1,6 @@
+1. the 2 ways are via JSON and YAML
+2. you can store your objects/classes and transmit them via HTTP, which only accepts string
+3. YAML is used to save configuration files in RoR since it's lightweight and straightforward
+   JSON is the format of choice to deliver complex/deeply nested data such as objects from website to program via API
+4. you can call to_json method to convert ruby object into json string
+5. to return it back you can do JSON.load string or JSON.parse string to get object back

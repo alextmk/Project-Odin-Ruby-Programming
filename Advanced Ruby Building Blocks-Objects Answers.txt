@@ -25,5 +25,13 @@
 22. inheritance works by a child class getting all variables/methods of the parent class, use < symbol to inherit
 23. inheritance is useful because it makes it so you don't have to write as much code
 24. extending a class is same thing as inheritance
-25. calling super in a method makes it so the call control looks for a method with same name in the parent class, it calls the superclass version of your method
+25. calling super in a method makes it so the call control looks for a method with same name in the parent class, it calls the superclass version of your method,
+    again using super can eliminate the need to write more code
+26. scope is the concept of when you can access a variable and when you can't
+27. you can use a variable as long as in scope
+28. a new scope is defined whenever you have a new method/loop
+29. a private method is one that's unaccessible to outside of the class, including descendents
+30. a protected method is similar to private but usable by descendents, i.e. if it's inherited
+31. *see above
+32. encapsulation means hide everything and only show what's necessary
 
