@@ -1,0 +1,80 @@
+Algorithm to get input to output
+
+Integer Multiplication:
+
+Input: 2 n-digit numbers xand y
+Output: the product x*y
+
+"primitive operation" -> add or multiply 2 single-digit numbers
+
+how many primitive operations to find 5678*1234
+
+
+1st: 4* 5678, at most 2n operations, including multiplication and carrying
+going through 4 digits of second number, total of 2n**2 operations, 
+
+the upshot: operations overall is quadratic with respect to n
+
+The most important principle for the good algorithm designer is torefuse to be content.
+CAN WE DO BETTER?
+
+1234%1=1234
+1234%10=4
+1234%100=34
+1234%1000=1
+
+
+5678*1000
+5678*200
+5678*30
+5678*4
+
+def multiply(n1,n2)
+	n1_s=n1.to_s.split("")
+	n2_s=n2.to_s.split("")
+	n=n2_s.length
+	n2_s.each_with_index do |i|
+	end
+end ???
+
+
+Karatsuba Multiplication
+
+5678*1234
+
+divide up into units, a=56, b=78, c=12,d=34
+
+step 1:a*c=672
+step 2: b*d=2652
+step 3 (a+b)*(c+d)=134*46=6164
+step 4: computer 3-2-1=2840
+step 5: 6720000+2652+284000=7006652
+
+
+recursive algorithm
+Write x=10^(n/2)a+b and y=10^(n/2)c+d
+where a,b,c,d are n/2 digit numbers
+
+x*y=10^n(a*c)+10^(n/2)*(ad+bc)+bd
+
+idea: recursively compute ac, ad, bc, bd
+
+base case here is when you're given 2 single digit numbers and give youan answer
+
+
+for x*y
+
+recursively compute ac
+recursively compute bd
+recursively compute (a+b)*(c+d)
+
+then subtract the 2 quantities that you already have computed, now only need 3 recursive calls
+
+
+
+
+
+
+
+
+

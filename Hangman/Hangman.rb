@@ -29,7 +29,7 @@ class Hangman
 		welcome_selection
 		while(@user_selection!=1&&@user_selection!=2)
 			if(@user_selection==3)
-				system "cls"
+				system('clear')
 				puts "----------------------------------------------------------------------"
 				about_message
 				puts "----------------------------------------------------------------------"
@@ -40,7 +40,7 @@ class Hangman
 			end
 		end
 		if(@user_selection==1)
-			system "cls"
+			system('clear')
 			puts "----------------------------------------------------------------------"
 			puts @skeleton_base
 			puts ""
@@ -51,7 +51,7 @@ class Hangman
 		end
 	end
 	def continue_turn
-		system "cls"
+		system('clear')
 		puts @skeleton_base #draw skeleton
 		puts ""
 		puts display_current #show current 
@@ -63,7 +63,9 @@ class Hangman
 			check_letter(@guess) #update current/skeleton parts as needed
 			if(check_win) #check win
 				abort(win_message)
-			elsif (check_loss) #check loss 
+			elsif (check_loss) #check loss
+				add_body_part
+				puts @skeleton_base
 				abort(lose_message)
 			else
 				puts @skeleton_base #draw skeleton

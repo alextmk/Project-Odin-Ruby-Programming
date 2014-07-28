@@ -1,9 +1,8 @@
 --- !ruby/object:Hangman
 user_guess: []
 guess: save
-answer_word: calamine
+answer_word: paschal
 current:
-- _
 - _
 - _
 - _
@@ -14,12 +13,12 @@ current:
 current_turn: 0
 user_selection: 1
 body:
-- ! ' '
-- ! ' '
-- ! ' '
-- ! ' '
-- ! ' '
-- ! ' '
-- ! ' '
-skeleton_base: ! "|-------------|          Total Letters=8\n|             |          Lives
+- ' '
+- ' '
+- ' '
+- ' '
+- ' '
+- ' '
+- ' '
+skeleton_base: "|-------------|          Total Letters=7\n|             |          Lives
   Left=7\n|              \n|               \n|              \n|               \n|\n|_________________"
